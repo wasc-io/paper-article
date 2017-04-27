@@ -6,13 +6,26 @@ Simple paper Article element. This element is useful for seperating your content
 
 This example creates a contrastet article with a blue-600 background:
 
-<!--
+<!---
 ```
 <custom-element-demo>
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="paper-article.html">
-
+    <style is="custom-style">
+      #container {
+        display: flex;
+      }
+      paper-article {
+        font-family: 'Roboto', 'Noto', sans-serif;
+        font-weight: normal;
+        font-size: 14px;
+        -webkit-font-smoothing: antialiased;
+      }
+    </style>
+    <div id="container">
+      <next-code-block></next-code-block>
+    </div>
   </template>
 </custom-element-demo>
 ```
