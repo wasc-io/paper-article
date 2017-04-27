@@ -21,6 +21,7 @@
     "Nicolai Schmid <nicolai@nicolaischmid.de>"
   ],
   "license": "BSD-2-Clause",
+  "private": false,
   "ignore": [
     "**/.*",
     "node_modules",
