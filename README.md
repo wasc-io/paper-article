@@ -31,7 +31,7 @@ This example creates a contrastet article with a blue-600 background:
 ```
 -->
 ```html
-<paper-article contrast color="blue-600"></paper-article>
+<paper-article contrast color="blue-600">Basic Article</paper-article>
 ```
 
 See [webcomponent page](https://www.webcomponents.org/element/wasc-io/paper-article) for more information
