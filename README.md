@@ -1,21 +1,26 @@
 # \<paper-article\>
 
-Simple Paper Article element with different contrast and background colors
+Simple paper Article element. This element is useful for seperating your content visually with color. The element is able to display every material style color as background
 
-## Install the Polymer-CLI
+This example creates a contrastet article with a blue-600 background:
 
-First, make sure you have the [Polymer CLI](https://www.npmjs.com/package/polymer-cli) installed. Then run `polymer serve` to serve your element locally.
-
-## Viewing Your Element
-
+<!--
 ```
-$ polymer serve
+<custom-element-demo>
+  <template>
+    <script src="../webcomponentsjs/webcomponents-lite.js"></script>
+    <link rel="import" href="paper-article.html">
+
+  </template>
+</custom-element-demo>
+```
+-->
+```html
+<paper-article contrast color="blue-600"></paper-article>
 ```
 
-## Running Tests
+See [webcomponent page](https://www.webcomponents.org/element/wasc-io/paper-article) for more information
 
-```
-$ polymer test
-```
+(c) 2017 wasc BSD-2-Clause License
 
-Your application is already set up to be tested via [web-component-tester](https://github.com/Polymer/web-component-tester). Run `polymer test` to run your application's test suite locally.
+
