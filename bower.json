@@ -1,0 +1,31 @@
+{
+  "name": "paper-article",
+  "description": "Simple Paper Article element with different contrast and background colors",
+  "main": "paper-article.html",
+  "dependencies": {
+    "polymer": "Polymer/polymer#^2.0.0-rc.2",
+    "paper-styles": "2.0-preview",
+    "iron-icons": "2.0-preview"
+  },
+  "devDependencies": {
+    "iron-demo-helpers": "PolymerElements/iron-demo-helpers#2.0-preview",
+    "web-component-tester": "^6.0.0-prerelease.5",
+    "webcomponentsjs": "webcomponents/webcomponentsjs#^1.0.0-rc.5"
+  },
+  "resolutions": {
+    "polymer": "^2.0.0-rc.2"
+  },
+  "homepage": "https://github.com/wasc-io/paper-article",
+  "authors": [
+    "Nicolai Schmid <nicolai@nicolaischmid.de>"
+  ],
+  "license": "BSD",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
