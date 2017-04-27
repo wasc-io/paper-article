@@ -19,7 +19,7 @@
   "authors": [
     "Nicolai Schmid <nicolai@nicolaischmid.de>"
   ],
-  "license": "BSD",
+  "license": "BSD-2-Clause",
   "private": true,
   "ignore": [
     "**/.*",
