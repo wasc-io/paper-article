@@ -1,0 +1,106 @@
+<link rel="import" href="../polymer/polymer-element.html">
+<link rel="import" href="../paper-styles/paper-styles.html">
+<!--<link rel="import" href="../polymer/lib/elements/dom-if.html">-->
+<!--<link rel="import" href="../polymer/lib/elements/dom-repeat.html">-->
+
+<!--
+`paper-article`
+Simple Paper Article element with different contrast and background colors
+
+@demo demo/index.html
+-->
+
+<dom-module id="paper-article">
+  <template>
+    <style>
+       :host {
+        display: block;
+      }
+
+       :host([contrast]) {
+        /*background-color: var(--paper-blue-600);*/
+        background-color: var(--contrast-background-color);
+        color: var(--contrast-color);
+      }
+
+      @media only screen and (min-width: 960px) {
+        .article {
+          padding: 10px 163px;
+          margin: 0;
+        }
+      }
+
+      @media only screen and (min-width: 600px) and (max-width: 960px) {
+        .article {
+          padding: 10px 63px;
+          margin: 0;
+        }
+      }
+
+      @media only screen and (max-width: 600px) {
+        .article {
+          padding: 10px 23px;
+          margin: 0;
+        }
+      }
+    </style>
+    <div class="article">
+      <slot></slot>
+    </div>
+  </template>
+
+  <script>
+    /** @polymerElement */
+    class PaperArticle extends Polymer.Element {
+      static get is() {
+        return 'paper-article';
+      }
+      static get properties() {
+        return {
+          contrast: {
+            type: Boolean,
+            value: false,
+          },
+          color: {
+            type: String,
+            observer: '_colorChanged',
+            value: 'grey-300'
+          }
+        };
+      }
+      _colorChanged(newValue, oldValue) {
+        // Create Value variable
+        var value;
+
+        // Look if value was provided
+        if (!newValue) {
+          value = oldValue.toLowerCase();
+        } else {
+          value = newValue.toLowerCase();
+        }
+
+        // Prepare strings
+        var backgroundColorBuffer = value.split('-')[0];
+        var backgroundColorGradeBuffer = value.split('-')[1];
+        var colorBuffer;
+
+        // Switch text-color to white or black depending on background
+        if (backgroundColorBuffer == 'grey' || backgroundColorBuffer == 'yellow') {
+          colorBuffer = 'grey-800';
+        } else {
+          colorBuffer = 'grey-200';
+        }
+
+        // Compute CSS Vars
+        var backgroundColor = 'var(--paper-' + backgroundColorBuffer + '-' + backgroundColorGradeBuffer + ')';
+        var color = 'var(--paper-' + colorBuffer + ')';
+
+        // Set CSS Vars
+        this.style.setProperty('--contrast-background-color', backgroundColor);
+        this.style.setProperty('--contrast-color', color);
+      }
+    }
+
+    window.customElements.define(PaperArticle.is, PaperArticle);
+  </script>
+</dom-module>
