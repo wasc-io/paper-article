@@ -19,30 +19,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
   <title>paper-article demo</title>
 
-  <script src="../webcomponentsjs/webcomponents-lite.js"></script>
-  <link rel="import" href="../polymer/polymer.html">
-  <link rel="import" href="../iron-demo-helpers/demo-snippet.html">
-  <link rel="import" href="../iron-demo-helpers/demo-pages-shared-styles.html">
-  <link rel="import" href="../iron-icons/iron-icons.html">
-  <link rel="import" href="../paper-styles/color.html">
-  <link rel="import" href="../paper-styles/typography.html">
-  <link rel="import" href="../paper-article/paper-article.html">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <link rel="import" href="../../polymer/polymer.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+  <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+  <link rel="import" href="../../iron-icons/iron-icons.html">
+  <link rel="import" href="../../paper-styles/color.html">
+  <link rel="import" href="../../paper-styles/typography.html">
+  <link rel="import" href="../paper-article.html">
 
-  <style is="custom-style" include="demo-pages-shared-styles">
-    * {
-      font-family: 'Roboto', 'Noto', sans-serif;
-    }
+  <custom-style>
+    <style is="custom-style" include="demo-pages-shared-styles">
+      * {
+        font-family: 'Roboto', 'Noto', sans-serif;
+      }
 
-    .vertical-section-container {
-      max-width: 500px;
-    }
-    /*paper-button {
-      margin-left: 10px;
-      margin-right: 10px;
-    }*/
-  </style>
+      .vertical-section-container {
+        max-width: 500px;
+      }
+    </style>
+  </custom-style>
 </head>
-
 <body unresolved>
   <div class="vertical-section-container centered">
     <h3>Paper articles are a way to visually structure your pages content with color</h3>
@@ -71,14 +68,14 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </demo-snippet>
 
-    <h3>If the background color is to light, the text-color automatically switches to a dark font</a></h3>
+    <h3>If the background color is to light, the text-color automatically switches to a dark font</h3>
     <demo-snippet class="centered-demo">
       <template>
         <paper-article contrast color="yellow-600">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
         <paper-article contrast color="grey-300">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
       </template>
     </demo-snippet>
+
   </div>
 </body>
-
 </html>
