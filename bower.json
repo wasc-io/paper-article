@@ -30,5 +30,8 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "demos": {
+    "Demo": "demo/index.html"
+  }
 }
