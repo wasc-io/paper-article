@@ -1,0 +1,5 @@
+{
+  "devDependencies": {
+    "web-component-tester": "^5.0.1"
+  }
+}
