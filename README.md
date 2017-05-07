@@ -12,6 +12,7 @@ This example creates a contrastet article with a blue-600 background:
   <template>
     <script src="../webcomponentsjs/webcomponents-lite.js"></script>
     <link rel="import" href="paper-article.html">
+    <link rel="import" href="../paper-styles/color.html">
     <style is="custom-style">
       #container {
         display: flex;
