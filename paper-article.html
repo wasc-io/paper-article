@@ -1,5 +1,4 @@
 <link rel="import" href="../polymer/polymer-element.html">
-<link rel="import" href="../paper-styles/color.html">
 <!--
 Simple paper Article element. This element is useful for seperating your content visually with color. The element is able to display every material style color as background
 `paper-article` 
@@ -64,47 +63,103 @@ Example:
         return {
           contrast: {
             type: Boolean,
+            observer: '_colorChanged',
             value: false,
           },
           color: {
             type: String,
             observer: '_colorChanged',
             value: 'grey-300'
+          },
+          textColor: {
+            type: String,
+            observer: '_colorChanged',
+            value: 'grey-200'
+          },
+          type: {
+            type: String,
+            observer: '_colorChanged',
+            value: 'default'
           }
         };
       }
       _colorChanged(newValue, oldValue) {
-        // Create Value variable
-        var value;
+        // Dirty check change 
+        if (newValue === oldValue) {
+          return;
+        }
+     
+        // Check what color type was provided
+        if (this.type == 'custom') {
+          // Compute CSS Vars
+          var backgroundColor = 'var(' + this.color + ')';
+          var color = 'var(--paper-' + this.textColor + ')';
 
-        // Look if value was provided
-        if (!newValue) {
-          value = oldValue.toLowerCase();
+          // Set CSS Vars
+          this.style.setProperty('--contrast-background-color', backgroundColor);
+          this.style.setProperty('--contrast-color', color);
         } else {
-          value = newValue.toLowerCase();
+          // Check if value is hex value
+          if (this.color.includes('#')) {
+            // Set background color to value
+            var backgroundColor = this.color;
+            var color = '';
+
+            // strip hash from string
+            var colorBuffer = this.color.substring(1);
+            console.log(colorBuffer);
+            // convert rrggbb to decimal
+            var rgb = parseInt(colorBuffer, 16);
+            // extract red
+            var r = (rgb >> 16) & 0xff;
+            // extract green 
+            var g = (rgb >> 8) & 0xff;
+            // extract blue
+            var b = (rgb >> 0) & 0xff;
+            // calculate luma
+            var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+            console.log(luma);
+            // if the luma is to low switch to white text
+            if (luma < 141) {
+              color = '#fff';
+            } else {
+              color = '#424242';
+            }
+
+
+            // Set color and background color vars
+            this.style.setProperty('--contrast-background-color', backgroundColor);
+            this.style.setProperty('--contrast-color', color);
+
+            // Fallback to paper-color           
+          } else {
+            // Prepare strings
+            var backgroundColorBuffer = this.color.split('-')[0];
+            var backgroundColorGradeBuffer = this.color.split('-')[1];
+            var colorBuffer;
+
+            // Switch text-color to white or black depending on background
+            if (backgroundColorBuffer == 'grey' || backgroundColorBuffer == 'yellow') {
+              colorBuffer = 'grey-800';
+            } else {
+              colorBuffer = 'grey-200';
+            }
+
+            // Compute CSS Vars
+            var backgroundColor = 'var(--paper-' + backgroundColorBuffer + '-' + backgroundColorGradeBuffer + ')';
+            var color = 'var(--paper-' + colorBuffer + ')';
+
+            // Set CSS Vars
+            this.style.setProperty('--contrast-background-color', backgroundColor);
+            this.style.setProperty('--contrast-color', color);
+
+          }
+
         }
 
-        // Prepare strings
-        var backgroundColorBuffer = value.split('-')[0];
-        var backgroundColorGradeBuffer = value.split('-')[1];
-        var colorBuffer;
-
-        // Switch text-color to white or black depending on background
-        if (backgroundColorBuffer == 'grey' || backgroundColorBuffer == 'yellow') {
-          colorBuffer = 'grey-800';
-        } else {
-          colorBuffer = 'grey-200';
-        }
-
-        // Compute CSS Vars
-        var backgroundColor = 'var(--paper-' + backgroundColorBuffer + '-' + backgroundColorGradeBuffer + ')';
-        var color = 'var(--paper-' + colorBuffer + ')';
-
-        // Set CSS Vars
-        this.style.setProperty('--contrast-background-color', backgroundColor);
-        this.style.setProperty('--contrast-color', color);
       }
     }
+
 
     window.customElements.define(PaperArticle.is, PaperArticle);
   </script>
