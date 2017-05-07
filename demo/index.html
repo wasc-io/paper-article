@@ -87,15 +87,15 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       </template>
     </demo-snippet>
 
-    <h3>To use the element with your own custom CSS variables defined in your dom, you have to set the type to 'custom'</h3>
+    <h3>To use the element with your own custom CSS properties defined in your dom, you provide the property name as a color value and the element will auto detect its type</h3>
     <demo-snippet class="centered-demo">
       <template>
         <style>
-          :host {
+          :root {
             --background-color: #3F51B5;
           }
         </style>
-        <paper-article contrast color="--background-color" type="custom">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
+        <paper-article contrast color="--background-color">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
       </template>
     </demo-snippet>
 
