@@ -60,6 +60,8 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
 
 
     <h3>Articles can have every background-color specified in the <a href="https://material.io/guidelines/style/color.html" target="_blank">Material Color Styles</a></h3>
+    <p>To use those colors you have to install paper-styles and import the color.html element into your dom.</p>
+    <p>You have to import it yourself so the element is still fast, even if you are not using the material colors.</p>
     <demo-snippet class="centered-demo">
       <template>
         <paper-article contrast color="red-600">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
@@ -73,6 +75,27 @@ subject to an additional IP rights grant found at http://polymer.github.io/PATEN
       <template>
         <paper-article contrast color="yellow-600">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
         <paper-article contrast color="grey-300">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
+      </template>
+    </demo-snippet>
+
+    <h3>You can also use your own colors and provide it via the hex value</h3>
+    <p>The element calculates if the background color is to bright or dark and will adjust the text color automatically</p>
+    <demo-snippet class="centered-demo">
+      <template>
+        <paper-article contrast color="#FF5722">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
+        <paper-article contrast color="#B3E5FC">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
+      </template>
+    </demo-snippet>
+
+    <h3>To use the element with your own custom CSS variables defined in your dom, you have to set the type to 'custom'</h3>
+    <demo-snippet class="centered-demo">
+      <template>
+        <style>
+          :host {
+            --background-color: #3F51B5;
+          }
+        </style>
+        <paper-article contrast color="--background-color" type="custom">Mauris. Aptent ac gravida non sapien velit libero.</paper-article>
       </template>
     </demo-snippet>
 
