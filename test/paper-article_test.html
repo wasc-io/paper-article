@@ -11,35 +11,29 @@
   <script src="../../web-component-tester/browser.js"></script>
 
   <link rel="import" href="../paper-article.html">
+  <link rel="import" href="../../paper-styles/color.html">
 </head>
 
 <body>
 
   <test-fixture id="BasicTestFixture">
     <template>
-      <paper-article><p>Basic</p></paper-article>
+      <paper-article>
+        <p>Basic</p>
+      </paper-article>
     </template>
   </test-fixture>
 
-  <test-fixture id="BasicColorTest">
+  <test-fixture id="PaperColorFixture">
     <template>
-      <paper-article color="blue-600"><p>Basic</p></paper-article>
+      <paper-article color="blue-600">
+        <p>Basic</p>
+      </paper-article>
     </template>
   </test-fixture>
 
   <script>
     suite('paper-article', function () {
-
-      test('instantiating the element with default properties works', function () {
-        var element = fixture('BasicTestFixture');
-        assert.equal(element.contrast, false);
-      });
-
-      test('setting a property on the element works', function () {
-        // Create a test fixture
-        var element = fixture('BasicColorTest');
-        assert.equal(element.color, 'blue-600');
-      });
 
     });
   </script>
