@@ -23,7 +23,7 @@
   "authors": [
     "Nicolai Schmid <nicolai@nicolaischmid.de>"
   ],
-  "license": "BSD-2-Clause",
+  "license": "BSD-3-Clause",
   "ignore": [
     "**/.*",
     "node_modules",
