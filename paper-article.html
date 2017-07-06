@@ -35,11 +35,21 @@ Example:
           padding: 10px 163px;
           margin: 0;
         }
+
+         :host([slim]) .article {
+          padding: 10px 273px;
+          margin: 0;
+        }
       }
 
       @media only screen and (min-width: 600px) and (max-width: 960px) {
         .article {
           padding: 10px 63px;
+          margin: 0;
+        }
+
+         :host([slim]) .article {
+          padding: 10px 103px;
           margin: 0;
         }
       }
@@ -119,7 +129,7 @@ Example:
           this.style.setProperty('--contrast-background-color', backgroundColor);
           this.style.setProperty('--contrast-color', color);
 
-        // If the color is a CSS custom property
+          // If the color is a CSS custom property
         } else if (this.color.includes('--')) {
           // Compute CSS Vars
           var backgroundColor = 'var(' + this.color + ')';
