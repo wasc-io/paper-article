@@ -82,13 +82,13 @@ Example:
           color: {
             type: String,
             observer: '_colorChanged',
-            value: 'grey-300'
+            value: 'grey-300',
           },
           textColor: {
             type: String,
             observer: '_colorChanged',
-            value: 'grey-200'
-          }
+            value: 'grey-200',
+          },
         };
       }
       _colorChanged(newValue, oldValue) {
@@ -100,30 +100,27 @@ Example:
         // Check if value is hex value
         if (this.color.includes('#')) {
           // Set background color to value
-          var backgroundColor = this.color;
-          var color = '';
+          const backgroundColor = this.color;
+          let color = '';
 
           // strip hash from string
-          var colorBuffer = this.color.substring(1);
-          console.log(colorBuffer);
+          const colorBuffer = this.color.substring(1);
           // convert rrggbb to decimal
-          var rgb = parseInt(colorBuffer, 16);
-          // extract red
-          var r = (rgb >> 16) & 0xff;
-          // extract green 
-          var g = (rgb >> 8) & 0xff;
-          // extract blue
-          var b = (rgb >> 0) & 0xff;
+          const rgb = parseInt(colorBuffer, 16);
+          // extract RGB
+          const r = (rgb >> 16) & 0xff;
+          const g = (rgb >> 8) & 0xff;
+          const b = (rgb >> 0) & 0xff;
+
           // calculate luma
-          var luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
-          console.log(luma);
+          const luma = 0.2126 * r + 0.7152 * g + 0.0722 * b; // per ITU-R BT.709
+
           // if the luma is to low switch to white text
           if (luma < 141) {
             color = '#fff';
           } else {
             color = '#424242';
           }
-
 
           // Set color and background color vars
           this.style.setProperty('--contrast-background-color', backgroundColor);
@@ -132,8 +129,8 @@ Example:
           // If the color is a CSS custom property
         } else if (this.color.includes('--')) {
           // Compute CSS Vars
-          var backgroundColor = 'var(' + this.color + ')';
-          var color = 'var(--paper-' + this.textColor + ')';
+          const backgroundColor = 'var(' + this.color + ')';
+          const color = 'var(--paper-' + this.textColor + ')';
 
           // Set CSS Vars
           this.style.setProperty('--contrast-background-color', backgroundColor);
@@ -141,9 +138,9 @@ Example:
           // Fallback to paper-color           
         } else {
           // Prepare strings
-          var backgroundColorBuffer = this.color.split('-')[0];
-          var backgroundColorGradeBuffer = this.color.split('-')[1];
-          var colorBuffer;
+          const backgroundColorBuffer = this.color.split('-')[0];
+          const backgroundColorGradeBuffer = this.color.split('-')[1];
+          let colorBuffer;
 
           // Switch text-color to white or black depending on background
           if (backgroundColorBuffer == 'grey' || backgroundColorBuffer == 'yellow') {
@@ -153,13 +150,12 @@ Example:
           }
 
           // Compute CSS Vars
-          var backgroundColor = 'var(--paper-' + backgroundColorBuffer + '-' + backgroundColorGradeBuffer + ')';
-          var color = 'var(--paper-' + colorBuffer + ')';
+          const backgroundColor = 'var(--paper-' + backgroundColorBuffer + '-' + backgroundColorGradeBuffer + ')';
+          const color = 'var(--paper-' + colorBuffer + ')';
 
           // Set CSS Vars
           this.style.setProperty('--contrast-background-color', backgroundColor);
           this.style.setProperty('--contrast-color', color);
-
         }
       }
     }
