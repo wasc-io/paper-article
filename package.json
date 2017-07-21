@@ -1,5 +1,13 @@
 {
+  "name": "paper-article",
+  "license": "BSD-3-Clause",
+  "scripts": {
+    "lint": "eslint . --ext js,html --ignore-path .gitignore"
+  },
   "devDependencies": {
+    "eslint": "^4.3.0",
+    "eslint-config-wasc": "^0.1.4",
+    "eslint-plugin-html": "^3.1.1",
     "web-component-tester": "^5.0.1"
   }
 }

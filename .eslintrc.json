@@ -1,0 +1,28 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "wasc"
+  ],
+  "env": {
+    "browser": true
+  },
+  "rules": {
+    "brace-style": "off",
+    "new-cap": ["error", { "capIsNewExceptions": ["Polymer"] }],
+    "no-var": "off",
+    "require-jsdoc": "off"
+  },
+  "parserOptions": {
+    "ecmaVersion": 6
+  },
+  "plugins": [
+    "html"
+  ],
+  "globals": {
+    "Polymer": true,
+    "appConfig": true,
+    "Redux": true,
+    "reduxMixin": true,
+    "moment": true
+  }
+}
