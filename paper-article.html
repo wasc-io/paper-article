@@ -4,18 +4,16 @@ This code may only be used under the BSD style license found at https://wasc-io.
 -->
 <link rel="import" href="../polymer/polymer-element.html">
 <!--
-Simple paper Article element. This element is useful for seperating your content visually with color. The element is able to display every material style color as background
-`paper-article` 
+Simple paper Article element. This element is useful for seperating your content visually with color.
+The element is able to display every material style color as background.
 
 This example creates a contrastet article with a blue-600 background:
-
-
-
-Example:
 
     <paper-article contrast color="blue-600">Basic Article</paper-article>
 
 @demo demo/index.html
+@polymer
+@customElement
 -->
 
 <dom-module id="paper-article">
@@ -74,16 +72,21 @@ Example:
       }
       static get properties() {
         return {
+          /** Wether or not the Element should inherit the background or set a custom one. */
           contrast: {
             type: Boolean,
             observer: '_colorChanged',
             value: false,
           },
+
+          /** The Background-Color of the Element. */
           color: {
             type: String,
             observer: '_colorChanged',
             value: 'grey-300',
           },
+
+          /** The Text-Color of the Element's content. */
           textColor: {
             type: String,
             observer: '_colorChanged',
