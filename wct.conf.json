@@ -1,0 +1,14 @@
+{
+    "plugins": {
+        "sauce": {
+            "browsers": [
+                "chrome",
+                "firefox",
+                "android",
+                "iPhone",
+                "safari",
+                "microsoftedge"
+            ]
+        }
+    }
+}
